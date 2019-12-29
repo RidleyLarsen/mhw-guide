@@ -1,0 +1,112 @@
+body {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+.monsters-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+.monster {
+  /*! padding: 1em; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.5em;
+  padding: 0.25em;
+  border: 1px solid #eaeaea;
+  border-radius: 0.25em;
+  box-shadow: 1px 2px 3px #aaa;
+}
+.monster h2 {
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  align-self: center;
+}
+.monster img {
+  max-width: 100%;
+  flex: 1;
+}
+
+.selected-monster {
+  display: flex;
+}
+
+.selected-monster {
+  max-width: 100%;
+}
+
+.selected-monster .quick-info {
+  display: flex;
+  /*! width: 100vw; */
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3vh;
+}
+
+.quick-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-info div img {
+  max-width: 25vw;
+  display: block;
+  padding-bottom: 0.5em;
+  align-self: center;
+}
+
+.quick-info .elements {
+	flex-direction: row;
+	justify-content: center;
+}
+
+.quick-info .elements img {
+	height: 1.5em;
+}
+
+.quick-info .weakness {
+  list-style: none;
+}
+.quick-info .weakness li {
+  text-transform: capitalize;
+  line-height: 1.5em;
+}
+
+.quick-info li img {
+    height: 1.5em;
+    line-height: 1.5em;
+    vertical-align: bottom;
+}
+
+.selected-monster nav {
+  position: fixed;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  background: white;
+  border: 1px solid #eaeaea;
+  font-family: 'Raleway', sans-serif;
+}
+
+.selected-monster nav span {
+  align-self: center;
+  padding-left: 1em;
+  flex: 3;
+  display: block;
+}
+
+.selected-monster nav a {
+  line-height: 5vh;
+  padding-right: 1em;
+}
+
+.selected-monster article {
+  padding: 1em;
+  padding-top: 8vh;
+}
+.selected-monster .weakness_pic {
+  max-width: 100%;
+}
