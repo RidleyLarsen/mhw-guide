@@ -77,6 +77,10 @@ body {
 	justify-content: center;
 }
 
+.quick-info .elements span {
+  font-size: 1.5em;
+}
+
 .quick-info .elements img {
 	height: 1.5em;
 }

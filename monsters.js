@@ -7,6 +7,7 @@ var data = {
     "fireblight": "images/icon_fireblight.png",
     "defense_down": "images/icon_defense_down.png",
     "iceblight": "images/icon_iceblight.png",
+    "thunderblight": "images/icon_thunderblight.png",
     "effluvial_buildup": "images/icon_effluvial_buildup.png",
     "paralysis": "images/icon_paralysis.png",
     "blastblight": "images/icon_blastblight.png",
@@ -15,6 +16,7 @@ var data = {
     "sleep": "images/icon_sleep.png",
   },
   "elements": {
+    "poison": "images/icon_poison.png",
     "water": "images/icon_water.png",
     "thunder": "images/icon_thunder.png",
     "dragon": "images/icon_dragon.png",

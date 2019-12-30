@@ -15,6 +15,7 @@
               <img v-bind:src="selected_monster.icon" />
               <div class="elements">
                 <img v-for="element in selected_monster.elements" v-bind:src="elements[element.name]" />
+                <span v-if="selected_monster.elements && selected_monster.elements.length > 0 && selected_monster.ailments.length > 0">/</span>
                 <img v-for="ailment in selected_monster.ailments" v-bind:src="ailments[ailment.name]" />
               </div>
             </div>
