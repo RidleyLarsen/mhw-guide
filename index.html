@@ -4,45 +4,49 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
   </head>
   <body>
     <div id="app">
-      <div>
-        <div class="selected-monster" v-if="selected_monster">
-          <nav>
-            <button v-on:click="selected_monster = undefined">Back</button>
-            <span>{{ selected_monster.name }}</span>
-            <a v-bind:href="selected_monster.wiki_link">Wiki</a>
-          </nav>
-          <article>
-            <div class="quick-info">
-              <div>
-                <img v-bind:src="selected_monster.icon" />
-                <div class="elements">
-                  <img v-for="element in selected_monster.elements" v-bind:src="elements[element.name]" />
-                  <img v-for="ailment in selected_monster.ailments" v-bind:src="ailments[ailment.name]" />
-                </div>
+      <div v-bind:class="{ 'page': true, 'selected-monster': true, active: selected_monster }">
+        <article>
+          <div class="quick-info">
+            <div>
+              <img v-bind:src="selected_monster.icon" />
+              <div class="elements">
+                <img v-for="element in selected_monster.elements" v-bind:src="elements[element.name]" />
+                <img v-for="ailment in selected_monster.ailments" v-bind:src="ailments[ailment.name]" />
               </div>
-              <ul class="weakness">
-                <li v-for="weakness in selected_monster.weakness">
-                  <img v-bind:src="elements[weakness.name]" v-bind:title="weakness.name"/>
-                  <span v-for="level in weakness.level">⭐</span>
-                  <span v-if="weakness.condition"> ({{ weakness.condition }})</span>
-                </li>
-              </ul>
             </div>
-            <a v-if="selected_monster.weakness_pic" v-bind:href="selected_monster.weakness_pic">
-              <img class="weakness_pic" v-bind:src="selected_monster.weakness_pic" />
-            </a>
-          </article>
-        </div>
-        <div class="monsters-container" v-else>
-          <div class="monster" v-for="monster in monsters" v-on:click="selected_monster = monster">
-            <img v-bind:src="monster.icon" />
-            <h2>{{ monster.name }}</h2>
+            <ul class="weakness">
+              <li v-for="weakness in selected_monster.weakness">
+                <img v-bind:src="elements[weakness.name]" v-bind:title="weakness.name"/>
+                <span v-for="level in weakness.level">⭐</span>
+                <span v-if="weakness.condition"> ({{ weakness.condition }})</span>
+              </li>
+            </ul>
           </div>
+          <a v-if="selected_monster.weakness_pic" v-bind:href="selected_monster.weakness_pic">
+            <img class="weakness_pic" v-bind:src="selected_monster.weakness_pic" />
+          </a>
+        </article>
+      </div>
+      <div v-bind:class="{ 'page': true, 'monsters-container': true, active: !selected_monster }">
+        <div class="monster" v-for="monster in monsters" v-on:click="set_monster(monster.name)">
+          <img v-bind:src="monster.icon" />
+          <h2>{{ monster.name }}</h2>
         </div>
       </div>
+      <nav>
+        <div v-if="selected_monster">
+          <button v-on:click="set_monster(undefined)">Back</button>
+          <span>{{ selected_monster.name }}</span>
+          <a v-bind:href="selected_monster.wiki_link">Wiki</a>
+        </div>
+        <div v-else>
+          <span>Monster Hunter World</span>
+        </div>
+      </nav>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="monsters.js"></script>
